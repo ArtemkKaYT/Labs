@@ -25,7 +25,7 @@ def generator(books):
      number = 1
      for row in reader:
           if number <= 20:
-               print(f'{number}. {row['Автор (ФИО)']} - {row['Название']} - {row['Дата поступления'][6:10]}')
+               print(f'{number}. {row['Автор (ФИО)']} - {row['Название']} - {row['Дата поступления'][6:10]} год')
                number += 1
 
 if __name__ == '__main__':

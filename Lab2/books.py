@@ -31,5 +31,5 @@ def generator(books):
 if __name__ == '__main__':
      with open('books.csv', encoding="windows-1251") as books:
         #count(books)
-        #search(books)
-        generator(books)
+        search(books)
+        #generator(books)

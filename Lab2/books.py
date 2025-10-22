@@ -1,5 +1,6 @@
 import csv
 
+
 def count(books):
     counter = 0
     reader = csv.DictReader(books, delimiter=";")
@@ -8,6 +9,7 @@ def count(books):
             counter += 1
     print(counter)
     
+
 def search(books):
     el = True
     reader = csv.DictReader(books, delimiter=";")
@@ -20,6 +22,7 @@ def search(books):
     if el == True:
         print('Not found')
 
+
 def generator(books):
      reader = csv.DictReader(books, delimiter=";")
      number = 1
@@ -27,6 +30,7 @@ def generator(books):
           if number <= 20:
                print(f'{number}. {row['Автор (ФИО)']} - {row['Название']} - {row['Дата поступления'][6:10]} год')
                number += 1
+
 
 if __name__ == '__main__':
      with open('books.csv', encoding="windows-1251") as books:

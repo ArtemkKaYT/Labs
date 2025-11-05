@@ -58,6 +58,7 @@ def init_input_frame(dec_frame, key_frame):
     dec_lbl.pack(side=tk.LEFT)
     entry_dec = tk.Entry(dec_frame, width=DEC_WIDTH)
     entry_dec.pack(side=tk.LEFT, padx=PADX)
+    entry_dec.focus()
     btn_gen = tk.Button(dec_frame, text='Generate key')
     btn_gen.pack(side=tk.LEFT, padx=PADX)
     entry_key = tk.Entry(key_frame, width=KEY_WIDTH, justify='center')

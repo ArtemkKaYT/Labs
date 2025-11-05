@@ -4,6 +4,10 @@ from PIL import Image, ImageTk
 
 
 ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+PADX = 5
+PADY = 10
+KEY_WIDTH = 30
+DEC_WIDTH = 6
 
 
 def keygen(dec):
@@ -41,9 +45,9 @@ def init_frames(root):
     bg_label.image = bg_img
     bg_label.place(relwidth=1, relheight=1)
     dec_frame = tk.Frame(main_frame)
-    dec_frame.pack(side=tk.TOP, pady=10)
+    dec_frame.pack(side=tk.TOP, pady=PADY)
     key_frame = tk.Frame(main_frame)
-    key_frame.pack(side=tk.TOP, pady=10)
+    key_frame.pack(side=tk.TOP, pady=PADY)
     bg_frame = tk.Frame(main_frame)
     bg_frame.pack()
     return main_frame, dec_frame, key_frame, bg_frame
@@ -52,11 +56,11 @@ def init_frames(root):
 def init_input_frame(dec_frame, key_frame):
     dec_lbl = tk.Label(dec_frame, text='Enter DEC (3 digits):')
     dec_lbl.pack(side=tk.LEFT)
-    entry_dec = tk.Entry(dec_frame, width=6)
-    entry_dec.pack(side=tk.LEFT, padx=5)
+    entry_dec = tk.Entry(dec_frame, width=DEC_WIDTH)
+    entry_dec.pack(side=tk.LEFT, padx=PADX)
     btn_gen = tk.Button(dec_frame, text='Generate key')
-    btn_gen.pack(side=tk.LEFT, padx=5)
-    entry_key = tk.Entry(key_frame, width=30)
+    btn_gen.pack(side=tk.LEFT, padx=PADX)
+    entry_key = tk.Entry(key_frame, width=KEY_WIDTH, justify='center')
     entry_key.pack()
     return entry_dec, entry_key, btn_gen
 

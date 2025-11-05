@@ -59,10 +59,10 @@ def init_input_frame(dec_frame, key_frame):
     entry_dec = tk.Entry(dec_frame, width=DEC_WIDTH)
     entry_dec.pack(side=tk.LEFT, padx=PADX)
     entry_dec.focus()
-    btn_gen = tk.Button(dec_frame, text='Generate key')
-    btn_gen.pack(side=tk.LEFT, padx=PADX)
     entry_key = tk.Entry(key_frame, width=KEY_WIDTH, justify='center')
     entry_key.pack()
+    btn_gen = tk.Button(dec_frame, text='Generate key', command=lambda: gen(entry_dec, entry_key))
+    btn_gen.pack(side=tk.LEFT, padx=PADX)
     return entry_dec, entry_key, btn_gen
 
 
@@ -84,8 +84,8 @@ def init_guy():
     frames = init_frames(root)
     dec_frame = frames[1]
     key_frame = frames[2]
-    entry_dec, entry_key, btn_gen = init_input_frame(dec_frame, key_frame)
-    btn_gen.config(command=lambda: gen(entry_dec, entry_key))
+    init_input_frame(dec_frame, key_frame)
+    #btn_gen.config(command=lambda: gen(entry_dec, entry_key))
     return root
 
 

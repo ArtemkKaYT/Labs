@@ -1,5 +1,6 @@
 import copy
 
+
 START_POINTS = 15
 INVENTORY_SIZE_X = 3
 INVENTORY_SIZE_Y = 3
@@ -107,7 +108,7 @@ def backpack(items, start_points, inventory_size_x, inventory_size_y):
                                          start_points)
 
     print(f'Best score: {best_score}')
-    print('Best backpack')
+    print('Best backpack:')
 
     for row in best_backpack:
         print(row)

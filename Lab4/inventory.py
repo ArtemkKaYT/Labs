@@ -21,8 +21,14 @@ items = {'r': {'size': 3, 'points': 25},
          'c': {'size': 2, 'points': 20}}
 
 
+all_positive_results = 0
+
+
 def try_main(backpack, items_names, index, current_points):
     if index >= len(items_names):
+        global all_positive_results
+        if current_points > 0:
+            all_positive_results += 1
         return (current_points, backpack)
 
     score_hor = try_hor(backpack, items_names, index, current_points)
@@ -107,11 +113,13 @@ def backpack(items, start_points, inventory_size_x, inventory_size_y):
     best_score, best_backpack = try_main(backpack, items_names, 0,
                                          start_points)
 
-    print(f'Best score: {best_score}')
-    print('Best backpack:')
+    print(f'Итоговые очки выживания: {best_score}')
+    print('Лучший вариант:')
 
     for row in best_backpack:
         print(row)
+
+    print(f'Количество всех положительных комбинаций: {all_positive_results}')
 
 
 if __name__ == '__main__':

@@ -19,6 +19,7 @@ with open(FILE_1, encoding='UTF-8') as file:
     pattern_word = r'\b[A-Za-zА-Яа-я]{4}\b'
     figs = match(pattern_fig, text)
     words = match(pattern_word, text)
+
     print(f'Задание 1:\n{figs}\n{words}\n')
 
 with open(FILE_2, encoding='UTF-8') as file:
@@ -29,6 +30,7 @@ with open(FILE_2, encoding='UTF-8') as file:
     fonts = match(pattern_font, text)
     styles = match(pattern_style, text)
     weight = match(pattern_weight, text)
+
     print('Задание 2:')
     for i in range(len(fonts)):
         print(f'{fonts[i]} - {styles[i]}, {weight[i]}')
@@ -45,6 +47,7 @@ with open(FILE_3, encoding='UTF-8') as file:
     mails = match(pattern_mail, text)
     dates = match(pattern_date, text)
     sites = match(pattern_site, text)
+
     output = []
     for i in range(len(Id)):
         output.append([Id[i], names[i], mails[i], dates[i], sites[i]])
@@ -61,5 +64,6 @@ with open(FILE_4, encoding='UTF-8') as file:
     dates = match(pattern_date, text)
     mails = match(pattern_mail, text)
     sites = match(pattern_site, text)
+    
     print(f'\nДополнительное задание')
     print(f'{dates}\n{mails}\n{sites}')

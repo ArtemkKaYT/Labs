@@ -42,15 +42,15 @@ with open(FILE_3, encoding='UTF-8') as file:
     pattern_mail = r'\b\w+@[A-Za-z-_]+\.\w+\b'
     pattern_date = r'\b\d{4}-\d{2}-\d{2}\b'
     pattern_site = r'https?:\/\/[^\s]+?\/'
-    Id = match(pattern_ID, text)
+    id = match(pattern_ID, text)
     names = match(pattern_name, text)
     mails = match(pattern_mail, text)
     dates = match(pattern_date, text)
     sites = match(pattern_site, text)
 
     output = []
-    for i in range(len(Id)):
-        output.append([Id[i], names[i], mails[i], dates[i], sites[i]])
+    for i in range(len(id)):
+        output.append([id[i], names[i], mails[i], dates[i], sites[i]])
     with open(FILE_OUTPUT, 'w', newline='', encoding='UTF-8') as file_output:
         writer = csv.writer(file_output)
         writer.writerow(['ID', 'Name', 'Mail', 'Date', 'Site'])

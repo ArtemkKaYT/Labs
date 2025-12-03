@@ -5,6 +5,7 @@ import csv
 FILE_1 = 'task1-ru.txt'
 FILE_2 = 'task2.html'
 FILE_3 = 'task3.txt'
+FILE_4 = 'task_add.txt'
 FILE_OUTPUT = 'task_3.csv'
 
 
@@ -12,16 +13,13 @@ def match(pattern, text):
     return re.findall(pattern, text)
 
 
-def iter(pattern, text):
-    return re.finditer(pattern, text)
-
-
 with open(FILE_1, encoding='UTF-8') as file:
     text = file.read()
-    pattern_1 = r'[Рр]ис\.\s*\d+'
-    pattern_2 = r'\b[A-Za-zА-Яа-я]{4}\b'
-    res = match(pattern_1, text) + match(pattern_2, text)
-    print('Задание 1:', len(res))
+    pattern_fig = r'[Рр]ис\.\s*\d+'
+    pattern_word = r'\b[A-Za-zА-Яа-я]{4}\b'
+    figs = match(pattern_fig, text)
+    words = match(pattern_word, text)
+    print(f'Задание 1:\n{figs}\n{words}\n')
 
 with open(FILE_2, encoding='UTF-8') as file:
     text = file.read()
@@ -54,3 +52,14 @@ with open(FILE_3, encoding='UTF-8') as file:
         writer = csv.writer(file_output)
         writer.writerow(['ID', 'Name', 'Mail', 'Date', 'Site'])
         writer.writerows(output)
+
+with open(FILE_4, encoding='UTF-8') as file:
+    text = file.read()
+    pattern_date = r'\d{2,4}(?:-|\.|\/)\d{2,4}(?:-|\.|\/)\d{2,4}'
+    pattern_mail = r'\b\w+@[A-Za-z]+\.[A-Za-z]+\b'
+    pattern_site = r'\bhttps?:\/\/[A-Za-z]+\.[A-Za-z]+'
+    dates = match(pattern_date, text)
+    mails = match(pattern_mail, text)
+    sites = match(pattern_site, text)
+    print(f'\nДополнительное задание')
+    print(f'{dates}\n{mails}\n{sites}')

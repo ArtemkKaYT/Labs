@@ -4,17 +4,16 @@ import requests
 WEATHER_URL = 'https://api.openweathermap.org/data/2.5/weather'
 API = '67a58c8f10d5e85b516cc7cfee622679'
 CITY_NAME = 'Khabarovsk'
-
-
-def weather():
-    params = {
+PARAMS = {
         'q': CITY_NAME,
         'appid': API,
         'units': 'metric',
         'lang': 'ru'
     }
 
-    response = requests.get(WEATHER_URL, params=params)
+
+def weather():
+    response = requests.get(WEATHER_URL, params=PARAMS)
 
     if response.status_code == 200:
         data = response.json()

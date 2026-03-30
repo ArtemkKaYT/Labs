@@ -63,9 +63,9 @@ def getOperationHistory(login, password):
             oper_place = record.find(".//{http://russianpost.org/operationhistory/data}OperationAddress/{http://russianpost.org/operationhistory/data}Description")
 
             print("Операция:", oper_type.text
-                  if oper_type is not None else "—")
-            print("Дата:", oper_date.text if oper_date is not None else "—")
-            print("Место:", oper_place.text if oper_place is not None else "—")
+                  if oper_type is not None else "-")
+            print("Дата:", oper_date.text if oper_date is not None else "-")
+            print("Место:", oper_place.text if oper_place is not None else "-")
             print("-" * 40)
 
     else:
